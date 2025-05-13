@@ -1,0 +1,150 @@
+header {
+  height: 156px;
+  background-color: var(--primary-cyan);
+  background-size: cover;
+  position: relative;
+}
+
+section {
+  padding-top: 4rem;
+  background-color: var(--background-color);
+  padding-inline: 2rem;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.card {
+  position: relative;
+  border-radius: 0.4rem;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title h2:hover {
+  cursor: pointer;
+  color: var(--primary-cyan);
+}
+
+.card-image {
+  position: absolute;
+  top: -28px;
+  width: 3.5rem;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-company {
+  display: flex;
+  align-items: center;
+  // justify-content: space-around;
+  gap: 1rem;
+}
+
+.card-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-body);
+  color: var(--dark-grayish-cyan);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+h3 {
+  color: var(--primary-cyan);
+}
+
+h2 {
+  color: var(--very-dark-grayish-cyan);
+  font-size: 1.2rem;
+}
+
+.filter-bar {
+  position: absolute;
+  background-color: white;
+  border-radius: 0.35rem;
+  padding: 1rem;
+  width: 90%;
+  margin-inline: auto;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.clear-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-cyan);
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
+}
+
+.remove {
+  cursor: pointer;
+  background-color: var(--primary-cyan);
+  border: none;
+  height: 30px;
+  aspect-ratio: 1 / 1;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 1000px) {
+  .card {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card-header {
+    flex-direction: row;
+  }
+
+  .card-image {
+    position: static;
+    width: 5rem;
+    margin-right: 2rem;
+  }
+}

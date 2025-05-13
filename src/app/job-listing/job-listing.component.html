@@ -1,0 +1,64 @@
+<header style="background-image: url('images/bg-header-desktop.svg')">
+  @if(filters.length > 0) {
+  <div class="filter-bar">
+    <div class="filter-tags">
+      @for(filter of filters; track filter) {
+      <span class="filter-tag">
+        {{ filter }}
+        <button class="remove" (click)="removeFilter(filter)">×</button>
+      </span>
+      }
+    </div>
+    <button class="clear-btn" (click)="clearFilters()">Clear</button>
+  </div>
+  }
+</header>
+
+<section class="columns">
+  @for (job of filterdJobs; track job.id) {
+  <div [ngClass]="{ 'border-left': job.featured }" class="card">
+    <div class="card-header">
+      <img [src]="job.logo" [alt]="job.company" class="card-image" />
+      <div class="card-meta">
+        <div class="card-company">
+          <h3>{{ job.company }}</h3>
+          <div class="card-badge">
+            @if (job.new) {
+            <span class="badge new">NEW!</span>
+            } @if (job.featured) {
+            <span class="badge featured">FEATURED</span>
+            }
+          </div>
+        </div>
+        <div class="card-title">
+          <h2>{{ job.position }}</h2>
+        </div>
+        <div class="card-time">
+          <span>{{ job.postedAt }}</span>
+          <span>&bull;</span>
+          <span>{{ job.contract }}</span>
+          <span>&bull;</span>
+          <span>{{ job.location }}</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mobile-only" />
+
+    <div class="card-footer">
+      <span class="tech-badge" (click)="addfilter(job.role)">{{
+        job.role
+      }}</span>
+      <span class="tech-badge" (click)="addfilter(job.level)">{{
+        job.level
+      }}</span>
+      @for (tool of job.tools; track tool) {
+      <span class="tech-badge" (click)="addfilter(tool)">{{ tool }}</span>
+      } @for (lang of job.languages; track lang) {
+      <span class="tech-badge" (click)="addfilter(lang)">{{ lang }}</span>
+      }
+    </div>
+  </div>
+
+  }
+</section>
